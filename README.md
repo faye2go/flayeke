@@ -1,1 +1,1 @@
-wip 
+wip nixos hyprland flake
