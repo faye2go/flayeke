@@ -12,7 +12,6 @@
     inputs.home-manager.nixosModules.home-manager
 
     ./hardware-configuration.nix
-    ./themes/theme1.nix
   ];
 
   home-manager = {

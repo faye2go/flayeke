@@ -1,4 +1,3 @@
-# home.nix
 {
   inputs,
   lib,
@@ -9,7 +8,7 @@
   
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./../features/kitty.nix
+    ./features/kitty.nix
   ]; 
 
   nixpkgs = {
@@ -19,8 +18,8 @@
     };
   };
 
-  
-  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-terminal-dark;
+
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
   home.username = "faye";
   home.homeDirectory = "/home/faye";
@@ -28,15 +27,17 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    brightnessctl
+    mpd
     font-awesome
     jetbrains-mono
     iosevka
     material-design-icons 
     libreoffice
     wlogout
-    wev # track inputs
-    bash # lol 
-    playerctl # control music player
+    wev
+    bash
+    playerctl
     networkmanagerapplet
     neovim
     hyprpaper
@@ -103,7 +104,6 @@
 
   programs.starship.enable = true;
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
@@ -111,9 +111,7 @@
     userEmail = "fayeklass@outlook.com";
   };
 
-  # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
 }
