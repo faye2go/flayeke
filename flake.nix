@@ -25,7 +25,7 @@
       t470-fk = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-        ./hosts/t470-fk/configuration.nix
+        ./t470-fk/configuration.nix
         ];
       };
     };

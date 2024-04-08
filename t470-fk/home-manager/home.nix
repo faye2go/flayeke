@@ -8,7 +8,7 @@
   
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./features/kitty.nix
+    ./../../modules/default.nix
   ]; 
 
   nixpkgs = {
@@ -17,7 +17,6 @@
       allowUnfreePredicate = _: true;
     };
   };
-
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
