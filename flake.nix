@@ -17,7 +17,6 @@
     nixpkgs,
     hyprland,
     home-manager,
-    nix-colors,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -26,11 +25,8 @@
       t470-fk = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-        ./nixos/configuration.nix
+        ./hosts/t470-fk/configuration.nix
         ];
-      };
-      bar = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit nix-colors; };
       };
     };
   };

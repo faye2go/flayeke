@@ -81,8 +81,8 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-};
+    EDITOR = "nvim";  
+  };
 
   programs.zsh = {
     enable = true;
@@ -98,10 +98,10 @@
     history.path = "${config.xdg.dataHome}/zsh/history";
   };
 
- programs.zoxide.enable = true;
- programs.zoxide.enableZshIntegration = true;
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
 
- programs.starship.enable = true;
+  programs.starship.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
