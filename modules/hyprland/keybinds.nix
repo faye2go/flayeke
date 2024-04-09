@@ -4,9 +4,9 @@
   ...
 }: {
 
-    environment.systemPackages = [
+    home.packages = [
     (import ./scripts/screenshot.nix {inherit pkgs;})
-    (import ./scripts/waybat-relaunch.nix {inherit pkgs;})
+    (import ./scripts/waybar-relaunch.nix {inherit pkgs;})
     (import ./scripts/toggle-bluetooth.nix {inherit pkgs;})
   ];
 
@@ -93,7 +93,7 @@
         # print -> screenshot in clipboard
         ", Print, exec, screenshot"
         # mainMod + L -> restart waybar
-        "$mainMod, L, exec, waybarRelaunch"
+        "$mainMod, L, exec, wbRelaunch"
       ];
 
       bindm = [

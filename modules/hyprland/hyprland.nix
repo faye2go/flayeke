@@ -9,7 +9,7 @@
     ./keybinds.nix
   ];
 
-  environment.systemPackages = [
+  home.packages = [
     (import ./scripts/startup.nix {inherit pkgs;})
   ];
 

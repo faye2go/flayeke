@@ -3,9 +3,9 @@
 }:
 
 pkgs.writeShellScriptBin "screenshot" ''
-  if pgrep ${pkgs.slurp}/bin/slurp 
+  if pgrep slurp 
   then  
-  pkill ${pkgs.slurp}/bin/slurp 
+  pkill slurp 
   sleep 0.1
   fi
 
