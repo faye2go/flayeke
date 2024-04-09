@@ -9,7 +9,7 @@
   imports = [
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-pc-laptop-acpi_call
-    inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.default
 
     ./hardware-configuration.nix
   ];

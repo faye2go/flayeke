@@ -5,7 +5,7 @@
 }: {
     wayland.windowManager.hyprland.settings = {
 
-      "$mainMod" = SUPER;
+      "$mainMod" = "SUPER";
 
       bind = [
         # mainMod + q -> start default terminal
@@ -126,5 +126,5 @@
         ", XF86AudioPrev, exec, playerctl previous"  
         ", XF86AudioStop, exec, playerctl stop"
       ];
-    }
-}
+    };
+  }

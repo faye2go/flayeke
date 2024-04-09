@@ -101,6 +101,8 @@
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
 
+  programs.bash.enable = true;
+  
   programs.starship.enable = true;
 
   programs.home-manager.enable = true;
