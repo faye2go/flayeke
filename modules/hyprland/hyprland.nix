@@ -9,13 +9,17 @@
     ./keybinds.nix
   ];
 
+  environment.systemPackages = [
+    (import ./scripts.nix {inherit pkgs;})
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     
     settings = {
       monitor = ",preferred,auto,1";
 
-      exec-once = "bash ~/.config/hypr/scripts/startup.sh";
+      exec-once = "startup";
 
       env = [
         "XCURSOR_SIZE,24"
@@ -38,14 +42,15 @@
       sensitivity = 0;
       };
 
-      general = {
+      general = with config.colorScheme.palette; {
 
         gaps_in = 5;
         gaps_out = 10;
 
         border_size = 3;
-        "col.active_border" = "rgba(bb9af7ee) rgba(cbccd1ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(${base0E}ff) rgba(${base07}ff) 45deg";
+        "col.inactive_border" = "rgba(${base00}aa)";
+        
 
         layout = "dwindle";
       };
