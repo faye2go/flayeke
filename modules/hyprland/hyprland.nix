@@ -10,7 +10,7 @@
   ];
 
   environment.systemPackages = [
-    (import ./scripts.nix {inherit pkgs;})
+    (import ./scripts/startup.nix {inherit pkgs;})
   ];
 
   wayland.windowManager.hyprland = {

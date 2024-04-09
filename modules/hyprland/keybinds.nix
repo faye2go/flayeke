@@ -3,6 +3,13 @@
   lib,
   ...
 }: {
+
+    environment.systemPackages = [
+    (import ./scripts/screenshot.nix {inherit pkgs;})
+    (import ./scripts/waybat-relaunch.nix {inherit pkgs;})
+    (import ./scripts/toggle-bluetooth.nix {inherit pkgs;})
+  ];
+
     wayland.windowManager.hyprland.settings = {
 
       "$mainMod" = "SUPER";
@@ -84,9 +91,9 @@
         # custom
 
         # print -> screenshot in clipboard
-        ", Print, exec, bash ~/.config/hypr/scripts/screenshot.sh"
+        ", Print, exec, screenshot"
         # mainMod + L -> restart waybar
-        "$mainMod, L, exec, bash ~/.config/hypr/scripts/waybar_relaunch.sh"
+        "$mainMod, L, exec, waybarRelaunch"
       ];
 
       bindm = [
@@ -116,7 +123,7 @@
 
         #9
         # F10 -> toggle bluetooth
-        ", XF86Bluetooth, exec, ~/.config/hypr/scripts/bluetooth.sh"
+        ", XF86Bluetooth, exec, toggleBluetooth"
         #11
         #12
 
