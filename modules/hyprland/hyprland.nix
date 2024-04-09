@@ -16,7 +16,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     
-    settings = {
+    settings = with config.colorScheme.palette; {
       monitor = ",preferred,auto,1";
 
       exec-once = "startup";
@@ -42,7 +42,7 @@
       sensitivity = 0;
       };
 
-      general = with config.colorScheme.palette; {
+      general = {
 
         gaps_in = 5;
         gaps_out = 10;
@@ -74,8 +74,8 @@
         shadow_range = 10;
         shadow_render_power = 1;
 
-        "col.shadow" = "rgba(1a1a1aff)";
-        "col.shadow_inactive" = "rgba(1a1a1a33)";
+        "col.shadow" = "rgba(${base01}ff)";
+        "col.shadow_inactive" = "rgba(${base01}33)";
       };
 
       animations = {

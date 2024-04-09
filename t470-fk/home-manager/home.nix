@@ -26,6 +26,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    pavucontrol
     brightnessctl
     mpd
     font-awesome
@@ -82,20 +83,6 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";  
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-      cd = "z";
-      update = "sudo nixos-rebuild --flake . switch";
-    };
-    history.size = 10000;
-    history.path = "${config.xdg.dataHome}/zsh/history";
   };
 
   programs.zoxide.enable = true;

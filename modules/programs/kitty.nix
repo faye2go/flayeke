@@ -7,9 +7,9 @@
     enable = true;
     font.name = "JetBrainsMono";
     font.size = 12;
-      settings = {
-        foreground = "#${config.colorScheme.palette.base05}";
-        background = "#${config.colorScheme.palette.base00}";
+      settings = with config.colorScheme.palette; {
+        foreground = "#${base05}";
+        background = "#${base00}";
         background_opacity = "0.9";
       };
     };
