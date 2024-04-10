@@ -7,7 +7,6 @@ scheme = config.colorScheme.palette;
 in {
   programs.waybar = {
     enable = true;
-  };
   settings = [{
     "layer" = "top";
     "position" = "top";
@@ -91,7 +90,7 @@ in {
             "phone" = "";
             "portable" = "";
             "car"= "";
-            "default"= ["" "" ""]
+            "default"= ["" "" ""];
         };
         "on-click" = "pavucontrol";
     };
@@ -135,14 +134,14 @@ in {
         "format-alt" = "{:%H:%M}";
     };
   }];
-  style = ''
+  style = with config.colorScheme.palette; ''
   * {
     font-family: Material Design Icons, JetBrainsMono;
   }
 
   window#waybar {
       background-color: rgba(100, 100, 115, 0.3);
-      color: #ffffff;
+      color: #${base05};
       transition-property: background-color;
       transition-duration: 0.5s;
       border-radius: 5px;
@@ -164,7 +163,6 @@ in {
       border-radius: 5px;
       padding: 2px 6px;
       background-color: rgba(26, 27, 38, 0.7);
-
       margin-left: 3px;
       margin-right: 3px;
 
@@ -177,7 +175,6 @@ in {
       border-radius: 5px;
       padding: 2px 6px;
       background-color: rgba(26, 27, 38, 0.7);
-
       margin-left: 3px;
       margin-right: 3px;
 
@@ -188,35 +185,31 @@ in {
   #workspaces button {
       font-size: 12px;
       padding: 0 4px;
-      color: #e5e5e5;
+      color: #${base05};
       background-color: rgba(100, 100, 115, 0.5);
   }
 
   #workspaces button.active {
-      background-color: #2980b9;
-      color: #e5e5e5;
+      background-color: #${base0D};
+      color: #${base01};
   }
 
   #workspaces button:hover {
-      color: #9b59b6;
-      background-color: #9b59b6;
+      color: #${base0E};
+      background-color: #${base05};
   }
 
   #cpu {
-      color: #2ecc71;
+      color: #${base0B};
   }
 
   #memory,
   #battery {
-      color: #9b59b6;
+      color: #${base0E};
   }
 
   #temperature {
-      color: #f0932b;
-  }
-
-  #temperature.critical {
-      color: #eb4d4b;
+      color: #${base09};
   }
 
   #window {
@@ -229,30 +222,31 @@ in {
   #pulseaudio.in,
   #wireplumber,
   #battery.ok:not(.charging) {
-      color: #${config.colorScheme.palette.base0D};
+      color: #${base0D};
   }
 
   #network.disconnected,
   #bluetooth.off,
   #pulseaudio.out.muted,
   #pulseaudio.in.source-muted,
-  #wireplumber.muted {
-      color: #f53c3c;
+  #wireplumber.muted,
+  #temperature.critical {
+      color: #${base08};
   }
 
   #battery.warning:not(.charging) {
-      color: #e9f53c;
+      color: #${base0A};
   }
 
   @keyframes blink { 
       to {
-          color: #e5e5e5;
-          background-color: rgba(150, 150, 170, 0.7);
+          color: #${base05};
+          background-color: rgba(100, 100, 115, 0.5);
       }
   }
 
   #battery.critical:not(.charging) {
-      color: #f53c3c;
+      color: #${base08};
       animation-name: blink;
       animation-duration: 2s;
       animation-timing-function: steps(12);
@@ -263,13 +257,14 @@ in {
   #battery.ok.charging,
   #battery.warning.charging,
   #battery.critical.charging {
-      color: #a5e5a5;
+      color: #${base0C};
   }
 
   #clock,
   #window,
   #workspaces {
-      color: #64727d;
+      color: #${base05};
   }
   '';
+  };
 }

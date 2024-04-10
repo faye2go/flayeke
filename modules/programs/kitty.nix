@@ -10,7 +10,7 @@
       settings = with config.colorScheme.palette; {
         foreground = "#${base05}";
         background = "#${base00}";
-        background_opacity = "0.9";
+        background_opacity = "0.8";
       };
     };
   }

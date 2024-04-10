@@ -74,8 +74,8 @@
         shadow_range = 10;
         shadow_render_power = 1;
 
-        "col.shadow" = "rgba(${base01}ff)";
-        "col.shadow_inactive" = "rgba(${base01}33)";
+        "col.shadow" = "rgba(1a1a1aff)";
+        "col.shadow_inactive" = "rgba(1a1a1a88)";
       };
 
       animations = {
