@@ -26,9 +26,10 @@ in {
     ];
     "modules-right" = [
         "tray"
-        "custom/swaync"
         "group/device"
         "clock"
+        "custom/swaync"
+        "custom/logout"
     ];
 
     "hyprland/workspaces" = {
@@ -63,11 +64,13 @@ in {
     "tray" = {
         "spacing" = 10;
     };
+    
     "custom/swaync" = {
-        "format" = "bell";
+        "format" = "{}";
         "on-click" = "swaync-client -t";
         "tooltip" = false;
     };
+    
     "group/device" = {
         "orientation" = "inherit";
         "modules" = [
@@ -92,7 +95,6 @@ in {
             "car"= "";
             "default"= ["" "" ""];
         };
-        "on-click" = "pavucontrol";
     };
     "pulseaudio#in" = {
         "format" = "{format_source}";
@@ -133,17 +135,20 @@ in {
         "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         "format-alt" = "{:%H:%M}";
     };
+    "custom/logout" = {
+        "format" = "";
+        "on-click" = "wlogout";
+        "tooltip" = false;
+    };
   }];
-  style = with config.colorScheme.palette; ''
+  style = with scheme; ''
   * {
-    font-family: Material Design Icons, JetBrainsMono;
+    font-family: JetBrainsMono;
   }
 
   window#waybar {
-      background-color: rgba(100, 100, 115, 0.3);
+      background-color: rgba(26, 27, 38, 0.3);
       color: #${base05};
-      transition-property: background-color;
-      transition-duration: 0.5s;
       border-radius: 5px;
     }
 
@@ -154,30 +159,32 @@ in {
   #custom-media,
   #tray,
   #custom-swaync,
-  #pulseaudio,
-  #bluetooth,
-  #network,
-  #battery,
-  #clock {
+  #clock,
+  #custom-logout,
+  #device {
       font-size: 16px;
       border-radius: 5px;
       padding: 2px 6px;
-      background-color: rgba(26, 27, 38, 0.7);
-      margin-left: 3px;
-      margin-right: 3px;
-
+      background-color: rgba(26, 27, 38, 0.5);
+      margin-left: 5px;
+      margin-right: 5px;
       margin-top: 5px;
       margin-bottom: 5px;
   }
 
+  #pulseaudio,
+  #bluetooth,
+  #network,
+  #battery {
+    margin-left: 5px;
+    margin-right: 5px;
+    }
+
   #workspaces {
       font-size: 16px;
       border-radius: 5px;
-      padding: 2px 6px;
-      background-color: rgba(26, 27, 38, 0.7);
-      margin-left: 3px;
-      margin-right: 3px;
-
+      margin-left: 10px;
+      margin-right: 10px;
       margin-top: 5px;
       margin-bottom: 5px;
   }
@@ -185,8 +192,10 @@ in {
   #workspaces button {
       font-size: 12px;
       padding: 0 4px;
+      margin-right: 2px;
       color: #${base05};
-      background-color: rgba(100, 100, 115, 0.5);
+      background-color: rgba(26, 27, 38, 0.5);
+      transition-duration: 0.5s;
   }
 
   #workspaces button.active {
@@ -195,8 +204,8 @@ in {
   }
 
   #workspaces button:hover {
-      color: #${base0E};
-      background-color: #${base05};
+      color: #${base01};
+      background: #${base05};
   }
 
   #cpu {
@@ -230,10 +239,12 @@ in {
   #pulseaudio.out.muted,
   #pulseaudio.in.source-muted,
   #wireplumber.muted,
-  #temperature.critical {
+  #temperature.critical,
+  #custom-logout {
       color: #${base08};
   }
 
+  #custom-swaync,
   #battery.warning:not(.charging) {
       color: #${base0A};
   }

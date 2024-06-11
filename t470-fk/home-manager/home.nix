@@ -18,15 +18,21 @@
     };
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
-
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-frappe;
+  
   home.username = "faye";
   home.homeDirectory = "/home/faye";
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    pavucontrol
+    tigervnc
+    inkscape-with-extensions
+    openscad-unstable
+    prusa-slicer
+    gnome.gnome-mines
+    obsidian
+    mako
     brightnessctl
     mpd
     font-awesome
@@ -72,7 +78,7 @@
     spotify
     bitwarden
     krita
-    prismlauncher-qt5
+    prismlauncher
     hyfetch
     fastfetch
     vscodium
@@ -93,6 +99,7 @@
   programs.starship.enable = true;
 
   programs.home-manager.enable = true;
+  
   programs.git = {
     enable = true;
     userName = "Faye";

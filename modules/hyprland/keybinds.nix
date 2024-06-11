@@ -8,6 +8,7 @@
     (import ./scripts/screenshot.nix {inherit pkgs;})
     (import ./scripts/waybar-relaunch.nix {inherit pkgs;})
     (import ./scripts/toggle-bluetooth.nix {inherit pkgs;})
+    (import ./scripts/wallpaper.nix {inherit pkgs;})
   ];
 
     wayland.windowManager.hyprland.settings = {
@@ -29,8 +30,10 @@
         "$mainMod, P, pseudo,"
         # mainMod + j -> toggle between horizontal and vertical split on focused window
         "$mainMod, J, togglesplit,"
-        # mainMod + m -> log out
-        "$mainMod, M, exit,"
+        # mainMod + n -> toggle swaync panel 
+        "$mainMod, N, exec, swaync-client -t"
+        # mainMod + m -> wlogout screen
+        "$mainMod, M, exec, wlogout"
 
         # mainMod + arrow keys -> move your focus
         "$mainMod, left, movefocus, l"
@@ -94,6 +97,8 @@
         ", Print, exec, screenshot"
         # mainMod + L -> restart waybar
         "$mainMod, L, exec, wbRelaunch"
+        # mainMod + shift + w -> change wallpaper randomly
+        "$mainMod, W, exec, changeWallpaper"
       ];
 
       bindm = [

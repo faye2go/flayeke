@@ -63,7 +63,10 @@
           enabled = true;
           size = 3;
           passes = 1;
-          blurls = "waybar";
+          blurls = [
+            "waybar"
+            "swaync-client"
+            ];
         };
 
         active_opacity = "1.0";

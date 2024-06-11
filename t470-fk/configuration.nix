@@ -68,12 +68,28 @@
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
     requires = [ "network-online.target" ];
-
     serviceConfig = {
       Type = "simple";
       ExecStartPre = "/run/current-system/sw/bin/mkdir -p /home/faye/onedrive";
       ExecStart = "${pkgs.rclone}/bin/rclone mount onedrive: /home/faye/onedrive";
       ExecStop = "/run/current-system/sw/bin/fusermount -u /home/faye/onedrive";
+      Restart = "on-failure";
+      RestartSec = "10s";
+      User = "faye";
+      Group = "users";
+      Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
+    };
+  };
+
+    systemd.services.rclone-nextcloud-mount = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+    requires = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStartPre = "/run/current-system/sw/bin/mkdir -p /home/faye/cyber";
+      ExecStart = "${pkgs.rclone}/bin/rclone mount cybercloud: /home/faye/cyber";
+      ExecStop = "/run/current-system/sw/bin/fusermount -u /home/faye/cyber";
       Restart = "on-failure";
       RestartSec = "10s";
       User = "faye";
@@ -100,6 +116,8 @@
   services.xserver.xkb.layout = "de";
   services.xserver.xkb.options = "eurosign:e";
 
+  services.tailscale.enable = true;
+
   sound.enable = true;
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
@@ -110,7 +128,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-
   hardware.bluetooth.enable = true;
 
   users.users = {
