@@ -26,6 +26,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    jdk
     tigervnc
     inkscape-with-extensions
     openscad-unstable

@@ -8,7 +8,7 @@
     (import ./scripts/screenshot.nix {inherit pkgs;})
     (import ./scripts/waybar-relaunch.nix {inherit pkgs;})
     (import ./scripts/toggle-bluetooth.nix {inherit pkgs;})
-    (import ./scripts/wallpaper.nix {inherit pkgs;})
+    # (import ./scripts/wallpaper.nix {inherit pkgs;})
   ];
 
     wayland.windowManager.hyprland.settings = {
@@ -98,7 +98,7 @@
         # mainMod + L -> restart waybar
         "$mainMod, L, exec, wbRelaunch"
         # mainMod + shift + w -> change wallpaper randomly
-        "$mainMod, W, exec, changeWallpaper"
+        # "$mainMod, W, exec, changeWallpaper"
       ];
 
       bindm = [
