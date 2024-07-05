@@ -45,7 +45,7 @@
       general = {
 
         gaps_in = 5;
-        gaps_out = 10;
+        gaps_out = 15;
 
         border_size = 3;
         "col.active_border" = "rgba(${base0E}ff) rgba(${base07}ff) 45deg";
@@ -57,7 +57,7 @@
 
       decoration = {
 
-        rounding = 5;
+        rounding = 10;
 
         blur = {
           enabled = true;
@@ -65,7 +65,6 @@
           passes = 1;
           blurls = [
             "waybar"
-            "swaync-client"
             ];
         };
 

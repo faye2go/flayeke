@@ -18,7 +18,7 @@
     };
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-frappe;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
   
   home.username = "faye";
   home.homeDirectory = "/home/faye";
@@ -26,6 +26,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    cava
     jdk
     tigervnc
     inkscape-with-extensions
@@ -36,7 +37,7 @@
     mako
     brightnessctl
     mpd
-    font-awesome
+    nerdfonts
     jetbrains-mono
     iosevka
     material-design-icons 
@@ -68,7 +69,6 @@
     waybar
     dolphin
     rclone
-    steam 
     gnomeExtensions.burn-my-windows
     gnomeExtensions.desktop-cube
     gnomeExtensions.compiz-windows-effect

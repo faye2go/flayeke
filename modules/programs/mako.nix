@@ -8,6 +8,7 @@ in {
   services.mako = {
     /* enable = true; 
     
-    trying to do something with swaync*/
+    TODO something something swaync
+    */
   };
 }

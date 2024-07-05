@@ -108,6 +108,10 @@
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
+  programs.steam = {
+    enable = true;
+  };
+
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -115,8 +119,6 @@
   
   services.xserver.xkb.layout = "de";
   services.xserver.xkb.options = "eurosign:e";
-
-  services.tailscale.enable = true;
 
   sound.enable = true;
   security.rtkit.enable = true;
