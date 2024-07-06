@@ -74,10 +74,11 @@ in {
                 ];
             };
             "mpris" = {
-                "format" = "{player_icon} <i>{title}</i>";
+                "format" = "{player_icon}  <i>{title}</i>";
                 "format-paused" = "{status_icon} <i>paused</i>";
-                "tooltip-format" = "{artist} / {album} ({player})";
-                "tooltip-format-status" = "{title} - {artist} / {album}. ({player})";
+                "tooltip-format" = "{artist} - {title} / {album} ({player})";
+                "tooltip-format-status" = "{artist} - {title} / {album}. ({player})";
+                "title-len" = 25;
                 "player-icons" = {
                     "default" = "";
                 };
@@ -112,30 +113,32 @@ in {
                 "modules" = [
                     "pulseaudio#out"
                     "pulseaudio#in"
+                    "backlight"
                     "bluetooth"
                     "network"
                     "battery"
                 ];
             };
             "pulseaudio#out" = {
-                "format" = "{volume}% {icon}";
-                "format-bluetooth" = "{volume}% {icon}";
-                "format-bluetooth-muted" = " {icon}";
+                "format" = "{icon}";
+                "format-alt" = "{volume}% {icon}";
+                "tooltip-format" = "{desc} ({volume}%)";
                 "format-muted" = "󰖁";
                 "format-icons" = {
                     "headphone" = "󰋋";
-                    "hands-free" = "";
-                    "headset" = "";
-                    "phone" = "";
-                    "portable" = "";
-                    "car"= "";
-                    "default"= ["󰝟" "󰕿" "󰖀" "󰕾"];
+                    "default"= ["󰕿" "󰖀" "󰕾"];
                 };
             };
             "pulseaudio#in" = {
                 "format" = "{format_source}";
                 "format-source" = "󰍬";
                 "format-source-muted" = "󰍭";
+            };
+            "backlight" = {
+                "format" = "{icon}";
+                "format-alt" = "{percent}% {icon}";
+                "tooltip-format" = "{percent}%";
+                "format-icons" = ["󰛩" "󱩎" "󱩏" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩕" "󱩖" "󱩖"];
             };
             "bluetooth" = {
                 "format" = "󰂯";
@@ -217,8 +220,8 @@ in {
         #custom-swaync,
         #custom-logout {
             background-color: rgba(36,39,58,0.5);
+            transition-duration: 0.3s;
         }
-
 
         #memory,
         #temperature,
@@ -226,10 +229,11 @@ in {
         #cava,
         #window,
         #pulseaudio.in,
+        #backlight,
         #bluetooth,
         #network,
         #battery {
-            margin-left: 5px;
+            padding-left: 5px;
             }
 
         #cpu,
@@ -238,17 +242,23 @@ in {
         #cava,
         #window,
         #pulseaudio,
+        #backlight,
         #bluetooth,
         #network {
-            margin-right: 5px;
+            padding-right: 5px;
             }
 
         #custom-wofi {
             padding-right: 12px;
         }
 
+        #custom-wofi:hover {
+            color: #${base05};
+            background-color: #${base0D};
+        }
+
+        #backlight,
         #network {
-            padding-left: 5px;
             padding-right: 8px;
         }
 
@@ -265,7 +275,7 @@ in {
             margin: 0;
             padding: 0 4px;
             background-color: transparent;
-            transition-duration: 0.5s;
+            transition-duration: 0.3s;
         }
 
         #workspaces button.active {
@@ -299,7 +309,7 @@ in {
         }
 
         #mpris.paused {
-            color: #${base01};
+            color: #${base04};
         }
 
         #window {
@@ -311,16 +321,27 @@ in {
             padding-right: 10px;
         }
 
+        #custom-swaync:hover {
+            color: #${base05};
+            background-color: #${base0A};
+        }
+
         #custom-logout {
             padding-left: 9px;
             padding-right: 9px;
         }
 
+        #custom-logout:hover {
+            color: #${base05};
+            background-color: #${base08};
+        }
+
+        #custom-wofi,
         #network,
         #bluetooth,
         #pulseaudio.out,
         #pulseaudio.in,
-        #wireplumber,
+        #backlight,
         #battery.ok:not(.charging) {
             color: #${base0D};
         }
