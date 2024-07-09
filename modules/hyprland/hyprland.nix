@@ -65,6 +65,7 @@
           passes = 1;
           blurls = [
             "waybar"
+            "wofi"
             ];
         };
 
@@ -73,8 +74,8 @@
         fullscreen_opacity = "1.0";
 
         drop_shadow = true;
-        shadow_range = 10;
-        shadow_render_power = 1;
+        shadow_range = 7;
+        shadow_render_power = 3;
 
         "col.shadow" = "rgba(1a1a1aff)";
         "col.shadow_inactive" = "rgba(1a1a1a88)";
