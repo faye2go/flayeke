@@ -16,17 +16,21 @@ in {
             "height" = 40;
 
             # layout
-
+        
             "modules-left" = [
                 "custom/wofi"
                 "hyprland/workspaces"
                 "group/system"
                 "mpris"
+                /*
+                TODO: cava module causes a segmentation fault idk why yet
                 "cava"
+                */
             ];
             "modules-center" = [
                 "hyprland/window"
             ];
+            
             "modules-right" = [
                 "tray"
                 "group/device"
@@ -101,6 +105,7 @@ in {
 
             "hyprland/window" = {
                 "format" = "{title}";
+                "icon" = false;
             };
 
             # modules-right

@@ -26,6 +26,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    pwvucontrol
     cider
     cava
     jdk
