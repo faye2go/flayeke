@@ -89,6 +89,7 @@ in {
                 "status-icons" = {
                     "paused" = "";
                 };
+                "ignored-players" = ["firefox"];
             };
             "cava" = {
                 "bars" = 14;

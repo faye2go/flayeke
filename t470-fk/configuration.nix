@@ -45,7 +45,7 @@
     auto-optimise-store = true;
   };
 
-  networking.hostName = "t470-fk";
+  networking.hostName = "fuchsia";
   networking.networkmanager.enable = true;
 
   boot.loader.systemd-boot.enable = true;
