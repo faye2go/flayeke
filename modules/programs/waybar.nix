@@ -22,10 +22,7 @@ in {
                 "hyprland/workspaces"
                 "group/system"
                 "mpris"
-                /*
-                TODO: cava module causes a segmentation fault idk why yet
                 "cava"
-                */
             ];
             "modules-center" = [
                 "hyprland/window"
