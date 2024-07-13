@@ -8,7 +8,7 @@
   
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./../../modules/default.nix
+    ./../../../modules/default.nix
   ]; 
 
   nixpkgs = {

@@ -22,10 +22,10 @@
     inherit (self) outputs;
   in {
     nixosConfigurations = {
-      t470-fk = nixpkgs.lib.nixosSystem {
+      fuchsia = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-        ./t470-fk/configuration.nix
+        ./hosts/fuchsia/configuration.nix
         ];
       };
     };
