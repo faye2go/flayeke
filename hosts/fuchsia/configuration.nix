@@ -100,7 +100,7 @@
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -120,7 +120,6 @@
   services.xserver.xkb.layout = "de";
   services.xserver.xkb.options = "eurosign:e";
 
-  sound.enable = true;
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {

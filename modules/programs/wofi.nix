@@ -15,7 +15,6 @@ in {
       allow_markup = true;
       width = "30%";
       height = "60%";
-      term = "kitty";
     };
 
     style = with scheme;  ''

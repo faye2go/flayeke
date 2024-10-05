@@ -120,17 +120,22 @@
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
         # F5 -> brightness up
-        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+ # F5"
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         # F6 -> brightness down
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%- # F6"
-        #7
-        #8
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        # F7 -> ?
+        #", XF86Display, exec,"
+        # F8 -> ?
+        #", XF86WLAN, exec,"
 
-        #9
-        # F10 -> toggle bluetooth
+        # F9 -> ?
+        # ", XF86Tools, exec,"
+        # F10 -> ?
         ", XF86Bluetooth, exec, toggleBluetooth"
-        #11
-        #12
+        #11 -> ?
+        # ", XF86Keyboard, exec,"
+        #12 -> ?
+        # ", XF86Favorites, exec,"
 
         # playerctrl stuff it's just what you're used to
         ", XF86AudioPlay, exec, playerctl play-pause"

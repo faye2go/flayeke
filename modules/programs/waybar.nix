@@ -94,7 +94,6 @@ in {
                 "autosens" = 0;
                 "sensitivity" = 5;
                 "sleep-timer" = 3;
-                "hide_on_silence" = true;
                 "input_delay" = 2;
                 "format-icons" = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
             };

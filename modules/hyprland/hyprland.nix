@@ -17,18 +17,25 @@
     enable = true;
     
     settings = with config.colorScheme.palette; {
-      monitor = ",preferred,auto,1";
+      monitor = [
+        # internal laptop monitor
+        "eDP-1, 1920x1080, 0x0, 1"
+        # external monitor
+        "HDMI-A-2, 1920x1080, auto, 1"
+        # drawing tablet
+        "DP-1, 1920x1080, auto, 1"
+      ];
 
       exec-once = "startup";
+
+      "$terminal" = "kitty";
+      "$fileManager" = "kitty ranger";
+      "$menu" = "wofi --show drun";
 
       env = [
         "XCURSOR_SIZE,24"
         "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
-
-      "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
 
       input = {
         kb_layout = "de";
@@ -51,7 +58,6 @@
         "col.active_border" = "rgba(${base0E}ff) rgba(${base07}ff) 45deg";
         "col.inactive_border" = "rgba(${base00}aa)";
         
-
         layout = "dwindle";
       };
 

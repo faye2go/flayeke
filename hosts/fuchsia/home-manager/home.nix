@@ -18,14 +18,23 @@
     };
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
-  
   home.username = "faye";
   home.homeDirectory = "/home/faye";
 
-  fonts.fontconfig.enable = true;
-
   home.packages = with pkgs; [
+    josm
+    python3
+    python312Packages.chardet
+    ffmpegthumbnailer
+    orca-slicer
+    zip
+    rofi-wayland
+    pipes-rs
+    cmatrix
+    imv
+    mpv
+    nemo
+    ardour
     pwvucontrol
     cider
     cava
@@ -34,17 +43,17 @@
     inkscape-with-extensions
     openscad-unstable
     prusa-slicer
-    gnome.gnome-mines
+    gnome-mines
     obsidian
     mako
     brightnessctl
     mpd
     nerdfonts
+    ocr-a
     jetbrains-mono
     iosevka
     material-design-icons 
     libreoffice
-    wlogout
     wev
     bash
     playerctl
@@ -57,7 +66,6 @@
     mpvpaper
     swww
     libsForQt5.polkit-kde-agent
-    xdg-desktop-portal-hyprland
     wireplumber
     pipewire
     libnotify
@@ -108,6 +116,12 @@
     userName = "Faye";
     userEmail = "fayeklass@outlook.com";
   };
+
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+
+  home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ-AA";
+  
+  fonts.fontconfig.enable = true;
 
   systemd.user.startServices = "sd-switch";
 
